@@ -1,0 +1,85 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <form class="m-4" method="post" style="min-width: 1000px">
+        {% csrf_token %}
+        <div class="row m-2">
+
+            <div class="col"><label class="input-label col">First Name
+                <input type="text" class="form-control">
+            </label></div>
+            <div class="col"><label class="input-label col">Father Name
+                <input type="text" class="form-control">
+            </label></div>
+            <div class="col"><label class="input-label col">Grandfather Name
+                <input type="text" class="form-control">
+            </label></div>
+            <div class="col"><label class="input-label col">Family Name
+                <input type="text" class="form-control">
+            </label></div>
+        </div>
+
+        <div class="row m-2">
+            <div class="col">
+                <label class="input-label col">Gender
+                    <select class="form-control">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col"><label class="input-label col">Birthday
+                <input type="date" class="form-control datepicker" data-date-format="mm/dd/yyyy">
+            </label></div>
+            <div class="col"><label class="input-label col">Nationality
+                <input type="text" class="form-control">
+            </label></div>
+            <div class="col"><label class="input-label col">National Id
+                <input type="text" class="form-control">
+            </label></div>
+        </div>
+
+        <div class="row m-2">
+            <div class="col">
+                <label class="input-label col">Institute
+                    <select class="form-control">
+                        {% for institute in institutes %}
+                            <option>{{ institute }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+            <div class="col"><label class="input-label col">Work Id
+                <input type="text" class="form-control">
+            </label></div>
+            <div class="col"><label class="input-label col">Address
+                <input type="text" class="form-control">
+            </label></div>
+            <div class="col"><label class="input-label col">Employee/Employee Related?
+                <input type="text" class="form-control">
+            </label></div>
+        </div>
+
+        <div class="row m-2">
+            <div class="col split-line"></div>
+            <div class="col">Contacts</div>
+            <div class="col split-line"></div>
+
+        </div>
+
+        <div class="row">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+
+{% block tail %}
+    {% include 'tail.html' %}
+{% endblock %}

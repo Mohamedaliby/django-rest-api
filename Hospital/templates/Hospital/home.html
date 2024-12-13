@@ -1,0 +1,48 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+
+    <form id="workIdForm"></form>
+    <form id="nameForm"></form>
+    <form id="instituteForm"></form>
+    <form id="nationalityForm"></form>
+
+    <div class="p-4">
+        <div class="h-scroll">
+            <table id="sortableTable" class="table table-striped table-bordered table-sm" cellspacing="0" style="width:100%; min-width: 1300px">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th id="workIdCol" class="th-sm" scope="col">Work Id
+                        <label class="m-0 ml-4"><input id="workIdFilterField" class="form-control" type="text" name="company" placeholder="Filter" form="workIdForm" style="max-width: 100px"/></label></th>
+                        <th class="th-sm" scope="col">Name
+                        <label class="m-0 ml-4"><input id="nameFilterField" class="form-control" type="text" name="company" placeholder="Filter" form="nameForm"/></label></th>
+                        <th class="th-sm" scope="col">Institute
+                        <label class="m-0 ml-4"><input id="instituteFilterField" class="form-control" type="text" name="company" placeholder="Filter" form="instituteForm"/></label></th>
+                        <th class="th-sm" scope="col">nationalId
+                        <label class="m-0 ml-4"><input id="nationalIdFilterField" class="form-control" type="text" name="company" placeholder="Filter" form="nationalityForm"/></label></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in people %}
+                        <tr>
+                            <th scope="row">{{ person.workId }}</th>
+                            <td>{{ person.firstName }} {{ person.fatherName }} {{ person.grandfatherName }} {{ person.familyName }}</td>
+                            <td>{{ person.institute }}</td>
+                            <td>{{ person.nationalId }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block tail %}
+    {% include 'tail.html' %}
+{% endblock %}

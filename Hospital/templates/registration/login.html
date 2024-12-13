@@ -1,0 +1,29 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="bg top" >
+        <h1 class="center title">
+            Hospital
+        </h1>
+    </div>
+
+    <div class="bg bottom">
+    </div>
+
+    <div class="center d-flex justify-content-center">
+        <div style="width: 500px">
+            <form class="p-1 container" method="post">
+                {% csrf_token %}
+                <input id="id_username" type="text" name="username" class="form-control col mb-4" placeholder="Username" value="" autofocus required/>
+                <input id="id_password" name="password" type="password" class="form-control col mt-4 mb-4" placeholder="Password" value="" required/>
+                <input type="submit" class="col mt-4 mb-4 accent-color" value="Login" />
+                <div class="col mt-4 d-flex justify-content-center align-items-center">
+                    <a href="#">Forget Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
